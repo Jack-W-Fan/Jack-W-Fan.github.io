@@ -1,16 +1,21 @@
 const width = document.getElementById('visualization-container').clientWidth;
-const height = document.getElementById('visualization-container').clientHeight - 50;  // Adjust for padding
+const height = document.getElementById('visualization-container').clientHeight - 50;
 
 const svg = d3.select("#visualization-container")
     .append("svg")
     .attr("width", width)
     .attr("height", height);
 
-d3.csv('MSPUS_processed.csv').then(data => {
-    data.forEach(d => {
-        d.DATE = new Date(d.DATE);
-        d.MSPUS = +d.MSPUS;
-    });
+    d3.csv('MSPUS_processed.csv')
+    .then(data => {
+        console.log('Data loaded:', data);
+
+        data.forEach(d => {
+            d.DATE = new Date(d.DATE);
+            d.MSPUS = +d.MSPUS;
+        });
+
+        console.log('Parsed data:', data); 
 
     const xScale = d3.scaleTime()
         .domain(d3.extent(data, d => d.DATE))
