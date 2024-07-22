@@ -1,21 +1,72 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Median Housing Prices Visualization</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Median Housing Prices in America</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #sidebar {
+            width: 250px;
+            margin-right: 20px;
+        }
+        #buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+        #buttons button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #description {
+            margin-top: 20px;
+        }
+        #visualization-container {
+            width: 800px;
+            height: 500px;
+            border: 1px solid #ccc;
+        }
+        h1 {
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            margin: 0;
+            width: 100%;
+        }
+        .annotation {
+            font-size: 12px;
+            fill: black;
+        }
+        .annotation-line {
+            stroke: black;
+            stroke-width: 1px;
+        }
+    </style>
 </head>
 <body>
-    <header class="bg-primary text-white text-center py-3">
+    <div id="sidebar">
+        <div id="buttons">
+            <button id="scene1-btn">Scene 1</button>
+            <button id="scene2-btn">Scene 2</button>
+            <button id="scene3-btn">Scene 3</button>
+        </div>
+        <div id="description">
+            <p id="scene-description"></p>
+        </div>
+    </div>
+    <div>
         <h1>Median Housing Prices in America (1963-2023)</h1>
-    </header>
-    <main class="container mt-5">
-        <div id="visualization-container" class="border rounded p-3"></div>
-    </main>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <div id="visualization-container"></div>
+    </div>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="scripts.js"></script>
 </body>
