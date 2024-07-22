@@ -46,7 +46,7 @@ d3.csv('MSPUS_processed.csv').then(data => {
         .call(yAxis);
 
     const annotationsScene1 = [
-        { date: '1963-01-01', text: 'Overall increase over 60 years', direction: 'upleft' },
+        { date: '1963-01-01', text: 'Overall increase over 60 years', direction: 'upright' },
         { date: '2023-01-01', text: 'Significant rise in 2020s', direction: 'left' }
     ];
 
@@ -131,13 +131,13 @@ d3.csv('MSPUS_processed.csv').then(data => {
                 .attr("fill", "black")
                 .text(annotation.text);
 
-            // svg.append("text")
-            //     .attr("class", "annotation")
-            //     .attr("x", x + textXOffset)
-            //     .attr("y", y + textYOffset + 15)
-            //     .attr("text-anchor", textAnchor)
-            //     .attr("fill", "black")
-            //     .text(`(${date.getFullYear()}, $${price})`);
+            svg.append("text")
+                .attr("class", "annotation")
+                .attr("x", x + textXOffset)
+                .attr("y", y + textYOffset + 15)
+                .attr("text-anchor", textAnchor)
+                .attr("fill", "black")
+                .text(`(${date.getFullYear()}, $${price})`);
         });
     }
 
